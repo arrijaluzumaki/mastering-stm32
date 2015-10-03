@@ -1,9 +1,6 @@
 /**
   ******************************************************************************
   * @file    stm32f0xx_hal_conf.h
-  * @author  MCD Application Team
-  * @version V1.3.0
-  * @date    26-June-2015
   * @brief   HAL configuration file.
   ******************************************************************************
   * @attention
@@ -43,6 +40,8 @@
  extern "C" {
 #endif
 
+#include "mxconstants.h" 
+
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
@@ -50,35 +49,39 @@
 /**
   * @brief This is the list of modules to be used in the HAL driver 
   */
-#define HAL_MODULE_ENABLED
-#define HAL_ADC_MODULE_ENABLED
-#define HAL_CAN_MODULE_ENABLED
-#define HAL_CEC_MODULE_ENABLED
-#define HAL_COMP_MODULE_ENABLED
+#define HAL_MODULE_ENABLED  
+//#define HAL_ADC_MODULE_ENABLED   
+//#define HAL_CAN_MODULE_ENABLED   
+//#define HAL_CEC_MODULE_ENABLED   
+//#define HAL_COMP_MODULE_ENABLED   
+//#define HAL_CRC_MODULE_ENABLED   
+//#define HAL_CRYP_MODULE_ENABLED   
+//#define HAL_TSC_MODULE_ENABLED   
+//#define HAL_DAC_MODULE_ENABLED   
+//#define HAL_I2C_MODULE_ENABLED   
+//#define HAL_I2S_MODULE_ENABLED   
+//#define HAL_IWDG_MODULE_ENABLED   
+//#define HAL_LCD_MODULE_ENABLED   
+//#define HAL_LPTIM_MODULE_ENABLED   
+//#define HAL_RNG_MODULE_ENABLED   
+//#define HAL_RTC_MODULE_ENABLED   
+//#define HAL_SPI_MODULE_ENABLED   
+//#define HAL_TIM_MODULE_ENABLED   
+//#define HAL_UART_MODULE_ENABLED   
+//#define HAL_USART_MODULE_ENABLED   
+//#define HAL_IRDA_MODULE_ENABLED   
+//#define HAL_SMARTCARD_MODULE_ENABLED   
+//#define HAL_SMBUS_MODULE_ENABLED   
+//#define HAL_WWDG_MODULE_ENABLED   
+//#define HAL_PCD_MODULE_ENABLED   
 #define HAL_CORTEX_MODULE_ENABLED
-#define HAL_CRC_MODULE_ENABLED
-#define HAL_DAC_MODULE_ENABLED
 #define HAL_DMA_MODULE_ENABLED
 #define HAL_FLASH_MODULE_ENABLED
 #define HAL_GPIO_MODULE_ENABLED
-#define HAL_I2C_MODULE_ENABLED
-#define HAL_I2S_MODULE_ENABLED
-#define HAL_IRDA_MODULE_ENABLED
-#define HAL_IWDG_MODULE_ENABLED
-#define HAL_PCD_MODULE_ENABLED
 #define HAL_PWR_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED
-#define HAL_RTC_MODULE_ENABLED
-#define HAL_SMARTCARD_MODULE_ENABLED
-#define HAL_SMBUS_MODULE_ENABLED
-#define HAL_SPI_MODULE_ENABLED
-#define HAL_TIM_MODULE_ENABLED
-#define HAL_TSC_MODULE_ENABLED
-#define HAL_UART_MODULE_ENABLED
-#define HAL_USART_MODULE_ENABLED
-#define HAL_WWDG_MODULE_ENABLED
 
-/* ######################### Oscillator Values adaptation ################### */
+/* ########################## HSE/HSI Values adaptation ##################### */
 /**
   * @brief Adjust the value of External High Speed oscillator (HSE) used in your application.
   *        This value is used by the RCC HAL module to compute the system frequency
@@ -140,7 +143,7 @@
                                              The real value may vary depending on the variations
                                              in voltage and temperature.  */
 /**
-  * @brief External Low Speed oscillator (LSE) value.
+  * @brief External Low Speed oscillator (LSI) value.
   */
 #if !defined  (LSE_VALUE)
  #define LSE_VALUE  ((uint32_t)32768)    /*!< Value of the External Low Speed oscillator in Hz */
@@ -148,8 +151,7 @@
 
 #if !defined  (LSE_STARTUP_TIMEOUT)
   #define LSE_STARTUP_TIMEOUT    ((uint32_t)5000)   /*!< Time out for LSE start up, in ms */
-#endif /* HSE_STARTUP_TIMEOUT */
-
+#endif /* LSE_STARTUP_TIMEOUT */
 
 /* Tip: To avoid modifying this file each time you need to use different HSE,
    ===  you can define the HSE value in your toolchain compiler preprocessor. */
@@ -159,20 +161,19 @@
   * @brief This is the HAL system configuration section
   */     
 #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */           
-#define  TICK_INT_PRIORITY            ((uint32_t)(1<<__NVIC_PRIO_BITS) - 1)   /*!< tick interrupt priority (lowest by default)             */
+#define  TICK_INT_PRIORITY            ((uint32_t)0)    /*!< tick interrupt priority (lowest by default)  */            
                                                                               /*  Warning: Must be set to higher priority for HAL_Delay()  */
                                                                               /*  and HAL_GetTick() usage under interrupt context          */
-#define  USE_RTOS                     0
-#define  PREFETCH_ENABLE              1
+#define  USE_RTOS                     0     
+#define  PREFETCH_ENABLE              1              
 #define  INSTRUCTION_CACHE_ENABLE     0
 #define  DATA_CACHE_ENABLE            0
-
 /* ########################## Assert Selection ############################## */
 /**
   * @brief Uncomment the line below to expanse the "assert_param" macro in the 
   *        HAL drivers code
   */
-/*#define USE_FULL_ASSERT    1*/
+/* #define USE_FULL_ASSERT   1 */
 
 /* Includes ------------------------------------------------------------------*/
 /**
@@ -306,6 +307,4 @@
 
 #endif /* __STM32F0xx_HAL_CONF_H */
 
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

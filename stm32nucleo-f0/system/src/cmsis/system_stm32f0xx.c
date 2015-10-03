@@ -82,6 +82,7 @@
   */
 
 #include "stm32f0xx.h"
+#include "stm32f0xx_hal_conf.h"
 
 /**
   * @}
